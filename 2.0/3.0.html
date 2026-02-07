@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en" style="height: auto; min-height: 100%;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nitesh Hardware & Paint Ghar - Manopali, Chhapra, Bihar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link id="heading-font-link" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link id="body-font-link" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['var(--font-heading-name)', 'sans-serif'],
+            body: ['var(--font-body-name)', 'sans-serif'],
+          },
+          spacing: {
+            base: 'var(--space-base)',
+          },
+          borderRadius: {
+            small: 'var(--radius-small)',
+            large: 'var(--radius-large)',
+          },
+          boxShadow: {
+            custom: 'var(--shadow-custom)',
+            'custom-hover': 'var(--shadow-custom-hover)',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      /* Typography */
+      --font-heading-name: 'Poppins';
+      --font-body-name: 'Work Sans';
+      --font-heading: 'Poppins', sans-serif;
+      --font-body: 'Work Sans', sans-serif;
+      --letter-spacing-heading: 0px;
+      --letter-spacing-body: 0px;
+      
+      /* Spacing */
+      --space-base: 1rem;
+      
+      /* Borders */
+      --radius-small: 6px;
+      --radius-large: 12px;
+      --border-width: 2px;
+      
+      /* Shadows */
+      --shadow-color: 0 0 0;
+      --shadow-offset-x: 0px;
+      --shadow-offset-y: 4px;
+      --shadow-blur: 12px;
+      --shadow-spread: 0px;
+      --shadow-opacity: 0.1;
+      --shadow-custom: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      --shadow-custom-hover: 0px 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      position: relative;
+      margin: 1rem;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 640px) {
+      .modal-content {
+        margin: 0.5rem;
+        max-height: 95vh;
+      }
+    }
+
+    .hero-overlay {
+      background: linear-gradient(to bottom right, rgba(51, 65, 85, 0.65), rgba(15, 23, 42, 0.95));
+    }
+  </style>
+</head>
+<body class="font-body" style="height: auto; min-height: 100%;">
+
+<!-- Top Contact Bar -->
+<div class="bg-slate-800 text-white py-2 px-4">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-sm">
+    <div class="flex items-center gap-2">
+      <svg class="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+      <span class="text-xs sm:text-sm">Manopali, Chhapra, Bihar – 841422</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="tel:+919102626721" class="flex items-center gap-1 hover:text-orange-500 transition-colors">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+        <span class="text-xs sm:text-sm">+91 9102626721</span>
+      </a>
+      <a href="https://wa.me/919102626721" target="_blank" class="flex items-center gap-1 hover:text-orange-500 transition-colors">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span class="text-xs sm:text-sm hidden sm:inline">WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky Header -->
+<header class="bg-white shadow-custom sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 py-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="https://logo-icons.com/cdn/shop/files/606-logo-1712850440.249color-DAA520.svg?v=1712851383&width=416" alt="Nitesh Hardware Logo" class="w-12 h-12 sm:w-14 sm:h-14 rounded-small object-cover">
+        <div>
+          <h1 class="font-heading text-lg sm:text-xl lg:text-2xl text-slate-800 font-bold">Nitesh Hardware & Paint Ghar</h1>
+          <p class="text-xs sm:text-sm text-slate-600">Your Trusted Hardware Partner</p>
+        </div>
+      </div>
+      <a href="#contact" class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-small text-sm font-medium transition-colors shadow-custom hover:shadow-custom-hover">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="relative py-16 sm:py-20 lg:py-24 px-4 overflow-hidden max-h-[600px]">
+  <div class="absolute inset-0 z-0">
+    <img src="https://t4.ftcdn.net/jpg/05/43/21/15/360_F_543211583_4NJZ9A062sNs4vtlA1pA09oYL2SbGWEU.jpg" alt="Hardware Store" class="w-full h-full object-cover">
+    <div class="hero-overlay absolute inset-0"></div>
+  </div>
+  <div class="max-w-7xl mx-auto text-center relative z-10">
+    <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white">Quality Hardware & Paint Solutions</h2>
+    <p class="text-lg sm:text-xl text-slate-100 mb-6 max-w-3xl mx-auto">Serving Manopali, Chhapra with premium paints, pipes, electrical supplies, tools, and home fixtures since years. Your one-stop shop for all construction and renovation needs.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a href="tel:+919102626721" class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-small font-medium transition-colors shadow-custom hover:shadow-custom-hover w-full sm:w-auto">Call Now</a>
+      <a href="https://wa.me/919102626721" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-small font-medium transition-colors shadow-custom hover:shadow-custom-hover w-full sm:w-auto">WhatsApp Inquiry</a>
+    </div>
+  </div>
+</section>
+
+<!-- Products Section -->
+<section class="py-12 sm:py-16 lg:py-20 px-4 bg-slate-50">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-800 text-center mb-12">Our Product Range</h2>
+
+    <!-- ROW 1: Paints -->
+    <div class="mb-12">
+      <h3 class="font-heading text-2xl font-semibold text-slate-800 mb-6">Premium Paints</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Asian Paints -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('asian-paints')">
+          <div class="aspect-video overflow-hidden rounded-t-large">
+            <img src="https://pawealth.in/wp-content/uploads/2022/07/Untitled-design.png" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-xl font-semibold text-slate-800 mb-2">Asian Paints</h4>
+            <p class="text-slate-600 text-sm mb-3">Premium quality paints for interior and exterior</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- British Paints -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('british-paints')">
+          <div class="aspect-video overflow-hidden rounded-t-large">
+            <img src="https://seekvectorlogo.net/wp-content/uploads/2019/03/british-paints-vector-logo.png" alt="British Paints" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-xl font-semibold text-slate-800 mb-2">British Paints</h4>
+            <p class="text-slate-600 text-sm mb-3">Durable and long-lasting paint solutions</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Indigo Paints -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('indigo-paints')">
+          <div class="aspect-video overflow-hidden rounded-t-large">
+            <img src="https://indigopaints.com/wp-content/uploads/2024/04/The-early-days.webp" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-xl font-semibold text-slate-800 mb-2">Indigo Paints</h4>
+            <p class="text-slate-600 text-sm mb-3">Innovative colors and finishes</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 2: Pipes & Water Storage -->
+    <div class="mb-12">
+      <h3 class="font-heading text-2xl font-semibold text-slate-800 mb-6">Pipes & Water Storage</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Astral Pipes -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('astral-pipes')">
+          <div class="aspect-video overflow-hidden rounded-t-large">
+            <img src="https://logowik.com/content/uploads/images/astral-pipes9674.logowik.com.webp" alt="Astral Pipes" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-xl font-semibold text-slate-800 mb-2">Astral Pipes</h4>
+            <p class="text-slate-600 text-sm mb-3">High-quality PVC and CPVC pipes</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sumolex Pipes -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('sumolex-pipes')">
+          <div class="aspect-video overflow-hidden rounded-t-large">
+            <img src="https://scontent.fgau1-4.fna.fbcdn.net/v/t39.30808-6/302662415_443715601111038_2511352923257776213_n.png?stp=dst-jpg_tt6&_nc_cat=109&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=0AB0aDd7n-4Q7kNvwEN9vBj&_nc_oc=Adk4M-H4VdzQlUcd8-ccMAic8g8UDCA28Ce8A11Q2OE6fItd-yu_0WT806__Cwiwc1EMHLvfGTSHxHjiomrgJZbk&_nc_zt=23&_nc_ht=scontent.fgau1-4.fna&_nc_gid=2I22TdQXBrrSg6z2YLYOuQ&oh=00_AfvunzzBPEyefPblGGmgtAwKJQL2uZsD361mIJbeM8YBVA&oe=698A9418" alt="Sumolex Pipes" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-xl font-semibold text-slate-800 mb-2">Sumolex Pipes</h4>
+            <p class="text-slate-600 text-sm mb-3">Reliable plumbing solutions</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Water Tanks -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('water-tanks')">
+          <div class="aspect-video overflow-hidden rounded-t-large">
+            <img src="https://spaces.indiapropertydekho.com/2024-09-25/file-8431539069.jpg" alt="Water Tanks" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-xl font-semibold text-slate-800 mb-2">Water Tanks</h4>
+            <p class="text-slate-600 text-sm mb-3">Durable water storage solutions</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 3: Electrical -->
+    <div class="mb-12">
+      <h3 class="font-heading text-2xl font-semibold text-slate-800 mb-6">Electrical Supplies</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Switches -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('switches')">
+          <div class="aspect-square overflow-hidden rounded-t-large">
+            <img src="https://shop.schneider-electric.co.in/media/catalog/product/cache/957058827deea85a6c51d651d25db05e/f/i/file_2025-09-19_14.59.44.png" alt="Switches" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Switches</h4>
+            <p class="text-slate-600 text-sm mb-3">All types of electrical switches</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sockets -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('sockets')">
+          <div class="aspect-square overflow-hidden rounded-t-large">
+            <img src="https://palfrey.in/cdn/shop/products/1_1_6233dbee-6b81-4280-95b8-301da2369d97.jpg?v=1638441670" alt="Sockets" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Sockets</h4>
+            <p class="text-slate-600 text-sm mb-3">Power outlets and USB sockets</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Wires -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('wires')">
+          <div class="aspect-square overflow-hidden rounded-t-large">
+            <img src="https://tiimg.tistatic.com/fp/1/007/818/high-strength-sturdy-durable-flexible-multicolor-pvc-copper-electric-wire-426.jpg" alt="Wires" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Wires</h4>
+            <p class="text-slate-600 text-sm mb-3">Copper and aluminum wiring</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- LED Bulbs -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('led-bulbs')">
+          <div class="aspect-square overflow-hidden rounded-t-large">
+            <img src="https://www.goldmedalindia.com/blog/wp-content/uploads/2022/09/LED-Bulbs-955px-X-637px-2022.jpg" alt="LED Bulbs" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">LED Bulbs</h4>
+            <p class="text-slate-600 text-sm mb-3">Energy-efficient lighting</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 4: Hardware Tools -->
+    <div class="mb-12">
+      <h3 class="font-heading text-2xl font-semibold text-slate-800 mb-6">Hardware Tools & Fasteners</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Nuts & Bolts -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('nuts-bolts')">
+          <div class="aspect-square overflow-hidden rounded-t-large">
+            <img src="https://www.thesmarthvac.com/images/thumbs/0000384_nuts-bolts-and-washers_550.jpeg" alt="Nuts and Bolts" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Nuts & Bolts</h4>
+            <p class="text-slate-600 text-sm mb-3">All sizes and types</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Paint Brushes -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('paint-brushes')">
+          <div class="aspect-square overflow-hidden rounded-t-large">
+            <img src="https://www.homeimprovementanddecor.com/wp-content/uploads/2021/05/General-Purpose-Wall-Paint-Brushes.jpg" alt="Paint Brushes" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Paint Brushes</h4>
+            <p class="text-slate-600 text-sm mb-3">Professional painting tools</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Screws & Nails -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('screws-nails')">
+          <div class="aspect-square overflow-hidden rounded-t-large">
+            <img src="https://www.techsupport.weyerhaeuser.com/hc/article_attachments/360101659634" alt="Screws and Nails" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Screws & Nails</h4>
+            <p class="text-slate-600 text-sm mb-3">Complete fastener range</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Rope -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('rope')">
+          <div class="aspect-square overflow-hidden rounded-t-large">
+            <img src="https://www.theknotsmanual.com/wp-content/uploads/rope/types-of-rope/Types-Of-Rope.jpg" alt="Rope" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Rope</h4>
+            <p class="text-slate-600 text-sm mb-3">Various types and sizes</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 5: Home Fixtures & Fittings -->
+    <div class="mb-12">
+      <h3 class="font-heading text-2xl font-semibold text-slate-800 mb-6">Home Fixtures & Fittings</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- Home Fixtures -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('home-fixtures')">
+          <div class="aspect-video overflow-hidden rounded-t-large">
+            <img src="https://homefixturesoutlet.com/cdn/shop/files/a-lot-of-home-fixtures-and-light-in-a-modern-and-clear-enviroment.png?v=1755904779&width=3840" alt="Home Fixtures" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-xl font-semibold text-slate-800 mb-2">Home Fixtures</h4>
+            <p class="text-slate-600 text-sm mb-3">Faucets, basins, showers, lighting, and more</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- General Fittings -->
+        <div class="bg-white rounded-large shadow-custom hover:shadow-custom-hover transition-all cursor-pointer" onclick="openModal('general-fittings')">
+          <div class="aspect-video overflow-hidden rounded-t-large">
+            <img src="https://www.bhg.com/thmb/EmuKL4yiqCMRZlclvSIJtMln9vU=/1866x0/filters:no_upscale():strip_icc()/renovated-neutral-colored-living-room-2f194807-3856ba1a2ea04e269ea42e93021fda64.jpg" alt="General Fittings" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h4 class="font-heading text-xl font-semibold text-slate-800 mb-2">General Fittings</h4>
+            <p class="text-slate-600 text-sm mb-3">Handles, knobs, shelves, hooks, and holders</p>
+            <button class="text-orange-600 hover:text-orange-700 font-medium text-sm flex items-center gap-1">
+              View Details
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-12 sm:py-16 lg:py-20 px-4 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-800 text-center mb-12">Get In Touch</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Contact Info -->
+      <div class="space-y-6">
+        <div class="bg-slate-50 rounded-large p-6 shadow-custom">
+          <h3 class="font-heading text-xl font-semibold text-slate-800 mb-4">Contact Information</h3>
+          <div class="space-y-4">
+            <a href="tel:+919102626721" class="flex items-center gap-3 text-slate-700 hover:text-orange-600 transition-colors">
+              <div class="bg-orange-100 p-3 rounded-small">
+                <svg class="w-6 h-6 text-orange-600" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+              </div>
+              <div>
+                <p class="text-sm text-slate-600">Phone</p>
+                <p class="font-medium">+91 9102626721</p>
+              </div>
+            </a>
+            <a href="https://wa.me/919102626721" target="_blank" class="flex items-center gap-3 text-slate-700 hover:text-green-600 transition-colors">
+              <div class="bg-green-100 p-3 rounded-small">
+                <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <div>
+                <p class="text-sm text-slate-600">WhatsApp</p>
+                <p class="font-medium">+91 9102626721</p>
+              </div>
+            </a>
+            <a href="mailto:yvraj.singh011@gmail.com" class="flex items-center gap-3 text-slate-700 hover:text-orange-600 transition-colors">
+              <div class="bg-orange-100 p-3 rounded-small">
+                <svg class="w-6 h-6 text-orange-600" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+              </div>
+              <div>
+                <p class="text-sm text-slate-600">Email</p>
+                <p class="font-medium">yvraj.singh011@gmail.com</p>
+              </div>
+            </a>
+            <a href="https://instagram.com/singhyvraj" target="_blank" class="flex items-center gap-3 text-slate-700 hover:text-pink-600 transition-colors">
+              <div class="bg-pink-100 p-3 rounded-small">
+                <svg class="w-6 h-6 text-pink-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </div>
+              <div>
+                <p class="text-sm text-slate-600">Instagram</p>
+                <p class="font-medium">@singhyvraj</p>
+              </div>
+            </a>
+            <div class="flex items-center gap-3 text-slate-700">
+              <div class="bg-slate-200 p-3 rounded-small">
+                <svg class="w-6 h-6 text-slate-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+              </div>
+              <div>
+                <p class="text-sm text-slate-600">Address</p>
+                <p class="font-medium">Manopali, Chhapra, Bihar – 841422</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+                <div class="bg-neutral-800 rounded-large p-2 h-full min-h-[300px] flex flex-col items-center justify-center text-center">
+                    <div class="bg-neutral-700 p-6 rounded-full mb-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map" aria-hidden="true" class="lucide lucide-map w-12 h-12 text-neutral-400"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg>  
+                        <path d="M15 5.764v15"></path>
+                        <path d="M9 3.236v15"></path>
+                        <i data-lucide="map" class="w-12 h-12 text-neutral-400"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2">Visit Our Store</h4>
+                    <p class="text-neutral-400 max-w-xs">Manopali, Chhapra, Bihar</p>
+                    <a href="https://www.google.com/maps/place/Nitesh+Hardwear/@26.0563189,84.6884387,17z/data=!3m1!4b1!4m6!3m5!1s0x3992c3f5b8738905:0x649106c388a3088c!8m2!3d26.0563189!4d84.6884387!16s%2Fg%2F11t7j6r23j?entry=ttu&g_ep=EgoyMDI2MDIwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="mt-6 px-6 py-2 bg-secondary-600 text-white rounded-small hover:bg-secondary-700 transition-colors inline-flex items-center gap-2">
+                        <i data-lucide="navigation" class="w-4 h-4"></i> Get Directions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer class="bg-slate-800 text-white py-8 px-4">
+  <div class="max-w-7xl mx-auto text-center">
+    <h3 class="font-heading text-xl font-semibold mb-2">Nitesh Hardware & Paint Ghar</h3>
+    <p class="text-slate-300 mb-4">Your Trusted Hardware Partner in Manopali, Chhapra</p>
+    <div class="flex justify-center gap-6 mb-4">
+      <a href="tel:+919102626721" class="hover:text-orange-500 transition-colors">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+      </a>
+      <a href="https://wa.me/919102626721" target="_blank" class="hover:text-green-500 transition-colors">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+      <a href="mailto:yvraj.singh011@gmail.com" class="hover:text-orange-500 transition-colors">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+      </a>
+      <a href="https://instagram.com/singhyvraj" target="_blank" class="hover:text-pink-500 transition-colors">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+    </div>
+    <p class="text-sm text-slate-400">&copy; 2024 Nitesh Hardware & Paint Ghar. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Modals -->
+<!-- Asian Paints Modal -->
+<div id="asian-paints" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">Asian Paints</h3>
+        <button onclick="closeModal('asian-paints')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="mb-6">
+        <h4 class="font-heading text-lg font-semibold text-slate-800 mb-3">Available Colors</h4>
+        <div class="flex flex-wrap gap-3">
+          <div class="w-10 h-10 rounded-full bg-red-500 border-2 border-slate-200 shadow-sm" title="Red"></div>
+          <div class="w-10 h-10 rounded-full bg-blue-500 border-2 border-slate-200 shadow-sm" title="Blue"></div>
+          <div class="w-10 h-10 rounded-full bg-green-500 border-2 border-slate-200 shadow-sm" title="Green"></div>
+          <div class="w-10 h-10 rounded-full bg-yellow-500 border-2 border-slate-200 shadow-sm" title="Yellow"></div>
+          <div class="w-10 h-10 rounded-full bg-purple-500 border-2 border-slate-200 shadow-sm" title="Purple"></div>
+          <div class="w-10 h-10 rounded-full bg-orange-500 border-2 border-slate-200 shadow-sm" title="Orange"></div>
+          <div class="w-10 h-10 rounded-full bg-pink-500 border-2 border-slate-200 shadow-sm" title="Pink"></div>
+          <div class="w-10 h-10 rounded-full bg-gray-500 border-2 border-slate-200 shadow-sm" title="Gray"></div>
+          <div class="w-10 h-10 rounded-full bg-slate-800 border-2 border-slate-200 shadow-sm" title="Black"></div>
+          <div class="w-10 h-10 rounded-full bg-white border-2 border-slate-200 shadow-sm" title="White"></div>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-heading text-lg font-semibold text-slate-800 mb-3">Available Quantities</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">250 ml</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">500 ml</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">1 L</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">2.5 L</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">5 L</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">10 L</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">20 L</div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in Asian Paints" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- British Paints Modal -->
+<div id="british-paints" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">British Paints</h3>
+        <button onclick="closeModal('british-paints')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="mb-6">
+        <h4 class="font-heading text-lg font-semibold text-slate-800 mb-3">Available Colors</h4>
+        <div class="flex flex-wrap gap-3">
+          <div class="w-10 h-10 rounded-full bg-red-500 border-2 border-slate-200 shadow-sm" title="Red"></div>
+          <div class="w-10 h-10 rounded-full bg-blue-500 border-2 border-slate-200 shadow-sm" title="Blue"></div>
+          <div class="w-10 h-10 rounded-full bg-green-500 border-2 border-slate-200 shadow-sm" title="Green"></div>
+          <div class="w-10 h-10 rounded-full bg-yellow-500 border-2 border-slate-200 shadow-sm" title="Yellow"></div>
+          <div class="w-10 h-10 rounded-full bg-purple-500 border-2 border-slate-200 shadow-sm" title="Purple"></div>
+          <div class="w-10 h-10 rounded-full bg-orange-500 border-2 border-slate-200 shadow-sm" title="Orange"></div>
+          <div class="w-10 h-10 rounded-full bg-pink-500 border-2 border-slate-200 shadow-sm" title="Pink"></div>
+          <div class="w-10 h-10 rounded-full bg-gray-500 border-2 border-slate-200 shadow-sm" title="Gray"></div>
+          <div class="w-10 h-10 rounded-full bg-slate-800 border-2 border-slate-200 shadow-sm" title="Black"></div>
+          <div class="w-10 h-10 rounded-full bg-white border-2 border-slate-200 shadow-sm" title="White"></div>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-heading text-lg font-semibold text-slate-800 mb-3">Available Quantities</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">250 ml</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">500 ml</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">1 L</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">2.5 L</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">5 L</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">10 L</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">20 L</div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in British Paints" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Indigo Paints Modal -->
+<div id="indigo-paints" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">Indigo Paints</h3>
+        <button onclick="closeModal('indigo-paints')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="mb-6">
+        <h4 class="font-heading text-lg font-semibold text-slate-800 mb-3">Available Colors</h4>
+        <div class="flex flex-wrap gap-3">
+          <div class="w-10 h-10 rounded-full bg-red-500 border-2 border-slate-200 shadow-sm" title="Red"></div>
+          <div class="w-10 h-10 rounded-full bg-blue-500 border-2 border-slate-200 shadow-sm" title="Blue"></div>
+          <div class="w-10 h-10 rounded-full bg-green-500 border-2 border-slate-200 shadow-sm" title="Green"></div>
+          <div class="w-10 h-10 rounded-full bg-yellow-500 border-2 border-slate-200 shadow-sm" title="Yellow"></div>
+          <div class="w-10 h-10 rounded-full bg-purple-500 border-2 border-slate-200 shadow-sm" title="Purple"></div>
+          <div class="w-10 h-10 rounded-full bg-orange-500 border-2 border-slate-200 shadow-sm" title="Orange"></div>
+          <div class="w-10 h-10 rounded-full bg-pink-500 border-2 border-slate-200 shadow-sm" title="Pink"></div>
+          <div class="w-10 h-10 rounded-full bg-gray-500 border-2 border-slate-200 shadow-sm" title="Gray"></div>
+          <div class="w-10 h-10 rounded-full bg-slate-800 border-2 border-slate-200 shadow-sm" title="Black"></div>
+          <div class="w-10 h-10 rounded-full bg-white border-2 border-slate-200 shadow-sm" title="White"></div>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-heading text-lg font-semibold text-slate-800 mb-3">Available Quantities</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">250 ml</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">500 ml</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">1 L</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">2.5 L</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">5 L</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">10 L</div>
+          <div class="bg-slate-50 px-4 py-2 rounded-small text-center text-slate-700 font-medium">20 L</div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in Indigo Paints" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Astral Pipes Modal -->
+<div id="astral-pipes" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">Astral Pipes</h3>
+        <button onclick="closeModal('astral-pipes')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">PVC (UPVC) Fittings</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Elbow</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Tee</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Coupling</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Cap</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Reducer</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">CPVC Fittings</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Elbow</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Tee</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Valve</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Coupling</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Drainage</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">PVC-U Drainage Pipes</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in Astral Pipes" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sumolex Pipes Modal -->
+<div id="sumolex-pipes" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">Sumolex Pipes</h3>
+        <button onclick="closeModal('sumolex-pipes')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">PVC (UPVC) Fittings</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Elbow</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Tee</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Coupling</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Cap</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Reducer</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">CPVC Fittings</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Elbow</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Tee</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Valve</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Coupling</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Drainage</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">PVC-U Drainage Pipes</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in Sumolex Pipes" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Water Tanks Modal -->
+<div id="water-tanks" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">Water Tanks</h3>
+        <button onclick="closeModal('water-tanks')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div>
+        <h4 class="font-heading text-lg font-semibold text-slate-800 mb-3">Available Capacities</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-slate-50 p-4 rounded-small">
+            <p class="text-2xl font-bold text-slate-800">500 L</p>
+            <p class="text-sm text-slate-600">Standard capacity tank</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-small">
+            <p class="text-2xl font-bold text-slate-800">1000 L</p>
+            <p class="text-sm text-slate-600">Large capacity tank</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in Water Tanks" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Switches Modal -->
+<div id="switches" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">Switches</h3>
+        <button onclick="closeModal('switches')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div>
+        <h4 class="font-heading text-lg font-semibold text-slate-800 mb-3">Available Types</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Toggle</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Push Button</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Rocker</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Slide</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Rotary</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Smart</div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in Switches" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sockets Modal -->
+<div id="sockets" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">Sockets</h3>
+        <button onclick="closeModal('sockets')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div>
+        <h4 class="font-heading text-lg font-semibold text-slate-800 mb-3">Available Types</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Two-pin</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Three-pin</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">USB</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Industrial</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Smart</div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in Sockets" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Wires Modal -->
+<div id="wires" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">Wires</h3>
+        <button onclick="closeModal('wires')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div>
+        <h4 class="font-heading text-lg font-semibold text-slate-800 mb-3">Available Types</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Single-core</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Multi-core</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Copper</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Aluminum</div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in Wires" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LED Bulbs Modal -->
+<div id="led-bulbs" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">LED Bulbs</h3>
+        <button onclick="closeModal('led-bulbs')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div>
+        <h4 class="font-heading text-lg font-semibold text-slate-800 mb-3">Available Types</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Standard</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Filament</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Smart</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Tube</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">RGB</div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in LED Bulbs" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Nuts & Bolts Modal -->
+<div id="nuts-bolts" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">Nuts & Bolts</h3>
+        <button onclick="closeModal('nuts-bolts')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Nuts</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Hex</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Lock</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Wing</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Cap</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Square</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Bolts</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Hex</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Carriage</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Lag</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Eye</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Machine</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in Nuts and Bolts" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Paint Brushes Modal -->
+<div id="paint-brushes" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">Paint Brushes</h3>
+        <button onclick="closeModal('paint-brushes')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div>
+        <h4 class="font-heading text-lg font-semibold text-slate-800 mb-3">Available Types</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Flat</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Round</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Angled</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Fan</div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in Paint Brushes" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Screws & Nails Modal -->
+<div id="screws-nails" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">Screws & Nails</h3>
+        <button onclick="closeModal('screws-nails')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div>
+        <h4 class="font-heading text-lg font-semibold text-slate-800 mb-3">Complete Range Available</h4>
+        <p class="text-slate-600 mb-4">We stock a comprehensive selection of screws and nails for all your construction and repair needs. From wood screws to concrete nails, we have everything you need.</p>
+        <div class="bg-slate-50 p-4 rounded-small">
+          <p class="text-slate-700 font-medium">Contact us for specific sizes and types</p>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in Screws and Nails" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Rope Modal -->
+<div id="rope" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">Rope</h3>
+        <button onclick="closeModal('rope')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div>
+        <h4 class="font-heading text-lg font-semibold text-slate-800 mb-3">Available Types</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Twisted</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Braided</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Natural</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Synthetic</div>
+          <div class="bg-slate-50 px-4 py-3 rounded-small text-center text-slate-700">Manila</div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in Rope" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Home Fixtures Modal -->
+<div id="home-fixtures" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">Home Fixtures</h3>
+        <button onclick="closeModal('home-fixtures')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Bathroom Fixtures</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Faucets</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Basins</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Showers</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Toilets</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Lighting & Fans</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Lighting Fixtures</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Ceiling Fans</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Kitchen & Storage</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Cabinets</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Sinks</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Doors & Windows</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Windows</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Doors</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in Home Fixtures" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- General Fittings Modal -->
+<div id="general-fittings" class="modal">
+  <div class="modal-content bg-white rounded-large shadow-custom">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-heading text-2xl font-bold text-slate-800">General Fittings</h3>
+        <button onclick="closeModal('general-fittings')" class="text-slate-400 hover:text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Hardware Fittings</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Handles</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Knobs</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Drawer Slides</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-heading text-lg font-semibold text-slate-800 mb-2">Storage & Organization</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Curtain Rods</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Shelves</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Hooks</span>
+            <span class="bg-slate-100 px-3 py-1 rounded-small text-sm text-slate-700">Holders</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/919102626721?text=I'm interested in General Fittings" class="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center px-6 py-3 rounded-small font-medium transition-colors">Inquire via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal(modalId) {
+    document.getElementById(modalId).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(modalId) {
+    document.getElementById(modalId).classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+      event.target.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  }
+</script>
+
+</body>
+</html>
